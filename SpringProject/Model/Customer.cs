@@ -23,28 +23,6 @@ namespace SpringProject.Model
     }
 
 
-    public class Appointment
-    {
-        private static int autoIncreament;
-        public int Id { get; set; }
-        public DateTime date { get; set; }
-    }
-
-
-    public class CustomerAppointment
-    {
-        public Customer customer { get; set; }
-
-        public Appointment appointment { get; set; }
-
-
-        public CustomerAppointment(Customer c, Appointment a)
-        {
-            customer = c;
-            appointment = a;
-        }
-    }
-
 
     public class Customers
     {
