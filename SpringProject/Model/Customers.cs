@@ -17,19 +17,17 @@ namespace SpringProject.Model
 
         public Customer Authenticate(string username, string password)
         {
-            Customer c = customers.Where(o => o.UserName == username).First();
-            if (c != null)
+            var c = customers.Where(o => (o.UserName == username) && (o.Password == password ));
+
+            if (c.Count() > 0)
             {
-                if (c.Password == password)
-                {
-                    return c;
-                }
-                else
-                {
-                    return null;
-                }
+                return c.First();
             }
-            return null;
+            else
+            {
+                return null;
+            }
+            
         }
     }
 }
