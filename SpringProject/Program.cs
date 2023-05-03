@@ -8,7 +8,7 @@ namespace SpringProject
         private static List<Appointment> appointments;
         private static List<CustomerAppointment> customerAppointments;
         private static Customer authenticatedCustomer;
-        private static List<Doctors> doctors;
+        private static List<Doctor> doctors;
         static void Main(string[] args)
         {
             Console.WriteLine("Initializing...");
@@ -55,7 +55,7 @@ namespace SpringProject
             customerAppointments.Add(ca2); 
             customerAppointments.Add(ca3);
 
-            var1 = new Doctor
+            var d1 = new Doctor
             {
                 FirstName = "John",
                 LastName = "Smith"
