@@ -8,6 +8,7 @@ namespace SpringProject
         private static List<Appointment> appointments;
         private static List<CustomerAppointment> customerAppointments;
         private static Customer authenticatedCustomer;
+        private static List<Doctors> doctors;
         static void Main(string[] args)
         {
             Console.WriteLine("Initializing...");
@@ -54,6 +55,21 @@ namespace SpringProject
             customerAppointments.Add(ca2); 
             customerAppointments.Add(ca3);
 
+            var1 = new Doctor
+            {
+                FirstName = "John",
+                LastName = "Smith"
+            };
+
+            var d2 = new Doctor
+            {
+                FirstName = "Jane",
+                LastName = "Jones"
+            };
+
+            doctors = new List<Doctor>();
+            doctors.Add(d1);
+            doctors.Add(d2);
 
         }
 
@@ -63,7 +79,7 @@ namespace SpringProject
 
             while(!done)
             {
-                Console.WriteLine("Options: Login: 1 --- Logout: 2 --- Sign Up: 3 --- Appointments: 4 --- Clear Screen: c --- Quit: q ---");
+                Console.WriteLine("Options: Login: 1 --- Logout: 2 --- Sign Up: 3 --- Appointments: 4 --- Doctors: 5 --- Clear Screen: c --- Quit: q ---");
                 Console.Write("Choice: ");
                 string choice = Console.ReadLine();
                 switch (choice)
@@ -79,6 +95,9 @@ namespace SpringProject
                         break;
                     case "4":
                         GetCurrentAppointmentsMenu();
+                        break;
+                    case "5":
+                        GetDoctorsMenu();
                         break;
                     case "c":
                         Console.Clear();
@@ -178,6 +197,11 @@ namespace SpringProject
             }
 
 
+        }
+
+        static void GetDoctorsMenu()
+        {
+            doctors.ForEach(p => Console.WriteLine($"{p.LastName}, {p.FirstName}"));
         }
 
 
