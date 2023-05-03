@@ -33,28 +33,6 @@ namespace SpringProject
                 Password = "12345"
             };
 
-            var a1 = new Appointment();
-            var a2 = new Appointment();
-            var a3 = new Appointment();
-
-            var ca1 = new CustomerAppointment(c1, a1);
-            var ca2 = new CustomerAppointment(c1, a2);
-            var ca3 = new CustomerAppointment(c2, a3);
-
-            customers = new Customers();
-            customers.customers.Add(c1);
-            customers.customers.Add(c2);
-
-            appointments= new List<Appointment>();
-            appointments.Add(a1);
-            appointments.Add(a2);
-            appointments.Add(a3);
-
-            customerAppointments = new List<CustomerAppointment>();
-            customerAppointments.Add(ca1);
-            customerAppointments.Add(ca2); 
-            customerAppointments.Add(ca3);
-
             var d1 = new Doctor
             {
                 FirstName = "John",
@@ -70,6 +48,30 @@ namespace SpringProject
             doctors = new List<Doctor>();
             doctors.Add(d1);
             doctors.Add(d2);
+
+            var a1 = new Appointment();
+            var a2 = new Appointment();
+            var a3 = new Appointment();
+
+            var ca1 = new CustomerAppointment(c1, a1, d1);
+            var ca2 = new CustomerAppointment(c1, a2, d2);
+            var ca3 = new CustomerAppointment(c2, a3, d2);
+
+            customers = new Customers();
+            customers.customers.Add(c1);
+            customers.customers.Add(c2);
+
+            appointments= new List<Appointment>();
+            appointments.Add(a1);
+            appointments.Add(a2);
+            appointments.Add(a3);
+
+            customerAppointments = new List<CustomerAppointment>();
+            customerAppointments.Add(ca1);
+            customerAppointments.Add(ca2); 
+            customerAppointments.Add(ca3);
+
+            
 
         }
 
