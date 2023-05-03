@@ -133,11 +133,11 @@ namespace SpringProject
         {
             Console.Write("First Name: ");
             string FirstName = Console.ReadLine();
-            Console.Write("First Name: ");
+            Console.Write("Last Name: ");
             string LastName = Console.ReadLine(); 
-            Console.Write("First Name: ");
+            Console.Write("Username: ");
             string UserName = Console.ReadLine();
-            Console.Write("First Name: ");
+            Console.Write("Password: ");
             string Password = Console.ReadLine();
 
             
