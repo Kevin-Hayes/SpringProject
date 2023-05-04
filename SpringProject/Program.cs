@@ -8,7 +8,7 @@ namespace SpringProject
         private static List<Appointment> appointments;
         private static List<CustomerAppointment> customerAppointments;
         private static Customer authenticatedCustomer;
-        private static List<Doctors> doctors;
+        private static List<Doctor> doctors;
         static void Main(string[] args)
         {
             Console.WriteLine("Initializing...");
@@ -33,13 +33,27 @@ namespace SpringProject
                 Password = "12345"
             };
 
+            var d1 = new Doctor
+            {
+                FirstName = "John",
+                LastName = "Smith"
+            };
+
+            var d2 = new Doctor
+            {
+                FirstName = "Jane",
+                LastName = "Jones"
+            };
+
+            
+
             var a1 = new Appointment();
             var a2 = new Appointment();
             var a3 = new Appointment();
 
-            var ca1 = new CustomerAppointment(c1, a1);
-            var ca2 = new CustomerAppointment(c1, a2);
-            var ca3 = new CustomerAppointment(c2, a3);
+            var ca1 = new CustomerAppointment(c1, a1, d1);
+            var ca2 = new CustomerAppointment(c1, a2, d2);
+            var ca3 = new CustomerAppointment(c2, a3, d2);
 
             customers = new Customers();
             customers.customers.Add(c1);
@@ -55,21 +69,11 @@ namespace SpringProject
             customerAppointments.Add(ca2); 
             customerAppointments.Add(ca3);
 
-            var1 = new Doctor
-            {
-                FirstName = "John",
-                LastName = "Smith"
-            };
-
-            var d2 = new Doctor
-            {
-                FirstName = "Jane",
-                LastName = "Jones"
-            };
-
             doctors = new List<Doctor>();
             doctors.Add(d1);
             doctors.Add(d2);
+
+
 
         }
 
@@ -79,8 +83,14 @@ namespace SpringProject
 
             while(!done)
             {
-                Console.WriteLine("Options: Login: 1 --- Logout: 2 --- Sign Up: 3 --- Appointments: 4 --- Doctors: 5 --- Clear Screen: c --- Quit: q ---");
-                Console.Write("Choice: ");
+                Console.WriteLine("Options:");
+                Console.WriteLine("To login, press 1");
+                Console.WriteLine("To logout, press 2");
+                Console.WriteLine("To sign Up, press 3");
+                Console.WriteLine("To view your appointments, press 4");
+                Console.WriteLine("To see your doctors, press 5");
+                Console.WriteLine("To clear the screen or quit the program, select c or q");
+                Console.WriteLine("Choice: ");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
@@ -192,7 +202,7 @@ namespace SpringProject
             {
                 foreach(var appointment in appointmentsList)
                 {
-                    Console.WriteLine(appointment.appointment.date);
+                    Console.WriteLine(appointment.appointment.currentDate);
                 }
             }
 

@@ -12,11 +12,14 @@ namespace SpringProject.Model
 
         public Appointment appointment { get; set; }
 
+        public Doctor doctor { get; set; }
 
-        public CustomerAppointment(Customer c, Appointment a)
+
+        public CustomerAppointment(Customer c, Appointment a, Doctor d)
         {
             customer = c;
             appointment = a;
+            doctor = d;
         }
     }
 }
