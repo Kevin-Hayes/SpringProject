@@ -45,9 +45,7 @@ namespace SpringProject
                 LastName = "Jones"
             };
 
-            doctors = new List<Doctor>();
-            doctors.Add(d1);
-            doctors.Add(d2);
+            
 
             var a1 = new Appointment();
             var a2 = new Appointment();
@@ -71,7 +69,11 @@ namespace SpringProject
             customerAppointments.Add(ca2); 
             customerAppointments.Add(ca3);
 
-            
+            doctors = new List<Doctor>();
+            doctors.Add(d1);
+            doctors.Add(d2);
+
+
 
         }
 
@@ -81,8 +83,14 @@ namespace SpringProject
 
             while(!done)
             {
-                Console.WriteLine("Options: Login: 1 --- Logout: 2 --- Sign Up: 3 --- Appointments: 4 --- Doctors: 5 --- Clear Screen: c --- Quit: q ---");
-                Console.Write("Choice: ");
+                Console.WriteLine("Options:");
+                Console.WriteLine("To login, press 1");
+                Console.WriteLine("To logout, press 2");
+                Console.WriteLine("To sign Up, press 3");
+                Console.WriteLine("To view your appointments, press 4");
+                Console.WriteLine("To see your doctors, press 5");
+                Console.WriteLine("To clear the screen or quit the program, select c or q");
+                Console.WriteLine("Choice: ");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
@@ -194,7 +202,7 @@ namespace SpringProject
             {
                 foreach(var appointment in appointmentsList)
                 {
-                    Console.WriteLine(appointment.appointment.date);
+                    Console.WriteLine(appointment.appointment.currentDate);
                 }
             }
 

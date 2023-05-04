@@ -10,7 +10,7 @@ namespace SpringProject.Model
     {
         private static int autoIncreament;
         public int Id { get; set; }
-        public DateTime date { get; set; }
+        public DateTime currentDate = DateTime.Now;
 
         public Appointment()
         {
