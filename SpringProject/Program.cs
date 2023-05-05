@@ -51,6 +51,8 @@ namespace SpringProject
             var a2 = new Appointment();
             var a3 = new Appointment();
 
+
+
             var ca1 = new CustomerAppointment(c1, a1, d1);
             var ca2 = new CustomerAppointment(c1, a2, d2);
             var ca3 = new CustomerAppointment(c2, a3, d2);
@@ -121,6 +123,38 @@ namespace SpringProject
                 }
             }
 
+            while (done)
+            {
+                Console.WriteLine("To logout, press 2");
+                Console.WriteLine("To view your appointments, press 4");
+                Console.WriteLine("To see your doctors, press 5");
+                Console.WriteLine("To clear the screen or quit the program, select c or q");
+                Console.WriteLine("Choice: ");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "2":
+                        LogoutMenu();
+                        break;
+                    case "4":
+                        GetCurrentAppointmentsMenu();
+                        break;
+                    case "5":
+                        GetDoctorsMenu();
+                        break;
+                    case "c":
+                        Console.Clear();
+                        break;
+                    case "q":
+                        done = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid command!");
+                        break;
+                }
+            }
+
+
         }
 
 
@@ -138,7 +172,9 @@ namespace SpringProject
                 authenticatedCustomer = customers.Authenticate(username, password);
                 if (authenticatedCustomer != null)
                 {
+                    Console.WriteLine(" ");
                     Console.WriteLine($"Welcome {authenticatedCustomer.FirstName}");
+                    Console.WriteLine(" ");
                 }
                 else
                 {
@@ -202,7 +238,9 @@ namespace SpringProject
             {
                 foreach(var appointment in appointmentsList)
                 {
+                    Console.WriteLine(" ");
                     Console.WriteLine(appointment.appointment.currentDate);
+                    Console.WriteLine(" ");
                 }
             }
 
