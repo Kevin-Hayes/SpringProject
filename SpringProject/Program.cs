@@ -18,22 +18,22 @@ namespace SpringProject
 
         static void Initialize()
         {
-            var c1 = new Customer
+            var c1 = new Customer //c1 and c2 are made up customers that can be used to login into the program without siging up
             {
-                FirstName= "Test",
-                LastName= "TEST",
-                UserName= "test",
+                FirstName= "Stephen",
+                LastName= "Curry",
+                UserName= "test1",
                 Password= "1234",
             };
             var c2 = new Customer
             {
                 FirstName = "Kevin",
                 LastName = "Hayes",
-                UserName = "test",
+                UserName = "test2",
                 Password = "12345"
             };
 
-            var d1 = new Doctor
+            var d1 = new Doctor //d1 and d2 are made up doctors that are assigned to patients
             {
                 FirstName = "John",
                 LastName = "Smith"
@@ -85,16 +85,16 @@ namespace SpringProject
 
             while(!done)
             {
-                Console.WriteLine("Options:");
+                Console.WriteLine("Options:"); // the following 8 lines display the options a patient has when they open the program
                 Console.WriteLine("To login, press 1");
                 Console.WriteLine("To logout, press 2");
                 Console.WriteLine("To sign Up, press 3");
                 Console.WriteLine("To view your appointments, press 4");
                 Console.WriteLine("To see your doctors, press 5");
                 Console.WriteLine("To clear the screen or quit the program, select c or q");
-                Console.WriteLine("Choice: ");
-                string choice = Console.ReadLine();
-                switch (choice)
+                Console.WriteLine("Choice: "); // on this line the patient enters their their option
+                string choice = Console.ReadLine(); // the patients input is read by the program
+                switch (choice) // based on the patients choice the correct  menu will be triggered
                 {
                     case "1":
                         LoginMenu();
@@ -121,38 +121,7 @@ namespace SpringProject
                         Console.WriteLine("Invalid command!");
                         break;
                 }
-            }
-
-            while (done)
-            {
-                Console.WriteLine("To logout, press 2");
-                Console.WriteLine("To view your appointments, press 4");
-                Console.WriteLine("To see your doctors, press 5");
-                Console.WriteLine("To clear the screen or quit the program, select c or q");
-                Console.WriteLine("Choice: ");
-                string choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "2":
-                        LogoutMenu();
-                        break;
-                    case "4":
-                        GetCurrentAppointmentsMenu();
-                        break;
-                    case "5":
-                        GetDoctorsMenu();
-                        break;
-                    case "c":
-                        Console.Clear();
-                        break;
-                    case "q":
-                        done = true;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid command!");
-                        break;
-                }
-            }
+            }          
 
 
         }
@@ -160,7 +129,7 @@ namespace SpringProject
 
 
         
-        static void LoginMenu()
+        static void LoginMenu() //this is the login menu. The patient is asked to enter a valid username and password.
         {
             if(authenticatedCustomer == null)
             {
@@ -173,28 +142,28 @@ namespace SpringProject
                 if (authenticatedCustomer != null)
                 {
                     Console.WriteLine(" ");
-                    Console.WriteLine($"Welcome {authenticatedCustomer.FirstName}");
+                    Console.WriteLine($"Welcome {authenticatedCustomer.FirstName}"); // They are then welcomed
                     Console.WriteLine(" ");
                 }
                 else
                 {
-                    Console.WriteLine("invlaid usernmae or password");
+                    Console.WriteLine("invlaid usernmae or password"); // The program will let them know if their username and password are incorrect
                 }
             }
             else
             {
-                Console.WriteLine($"You are already logged in as {authenticatedCustomer.UserName}");
+                Console.WriteLine($"You are already logged in as {authenticatedCustomer.UserName}"); // It will also let them know if the are already logged in
             }
 
         }
 
-        static void LogoutMenu()
+        static void LogoutMenu() // The logout will log the user out
         {
             authenticatedCustomer = null;
             Console.WriteLine("Logged out");
         }
 
-        static void SignUpMenu()
+        static void SignUpMenu() // This is the signup menu. The pateint is asked to enter their name and create a username and password
         {
             Console.Write("First Name: ");
             string FirstName = Console.ReadLine();
@@ -220,11 +189,11 @@ namespace SpringProject
 
         }
 
-        static void GetCurrentAppointmentsMenu()
+        static void GetCurrentAppointmentsMenu() //This menu will show the customer their appointments. 
         {
             if(authenticatedCustomer == null)
             {
-                Console.WriteLine("You are not logged in.");
+                Console.WriteLine("You are not logged in."); //If the patient is not logged in, they will not be shown appointments
                 return;
             }
 
@@ -247,9 +216,14 @@ namespace SpringProject
 
         }
 
-        static void GetDoctorsMenu()
+        static void GetDoctorsMenu() // The doctors menu will show the names of the doctors
         {
-            doctors.ForEach(p => Console.WriteLine($"{p.LastName}, {p.FirstName}"));
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                Console.WriteLine($"{i}: {doctors[i].LastName}, {doctors[i].FirstName}");
+            }
+            Console.WriteLine("Enter doctor's corresponding number: ");
+            Console.ReadLine();
         }
 
 
