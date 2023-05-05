@@ -8,9 +8,10 @@ namespace SpringProject.Model
 {
     public class Appointment
     {
-        private static int autoIncreament;
+        private static int autoIncreament; 
         public int Id { get; set; }
-        public DateTime currentDate = DateTime.Now;
+        public DateTime currentDate = DateTime.Now; /*We wanted to use a random date generator but were unable to do so, 
+                                                     so the appointment date and time will just be the current date and time.*/
 
         public Appointment()
         {
