@@ -249,9 +249,16 @@ namespace SpringProject
 
         static void GetDoctorsMenu()
         {
-            doctors.ForEach(p => Console.WriteLine($"{p.LastName}, {p.FirstName}"));
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                Console.WriteLine($"{i}: {doctors[i].LastName}{doctors[i].FirstName}");
+            }
+            Console.WriteLine("Enter corresponding number of doctor to select:");
+            Console.ReadLine();
+
+
         }
 
-   
+
     }
 }
