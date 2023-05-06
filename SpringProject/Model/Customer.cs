@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpringProject.Model
 {
-    public class Customer
+    public class Customer //getters and setters are to validate properties
     {
         private static int autoIncreament;
         public int Id { get; set; }

@@ -15,7 +15,7 @@ namespace SpringProject.Model
             customers = new List<Customer>();
         }
 
-        public Customer Authenticate(string username, string password)
+        public Customer Authenticate(string username, string password) //The username and password are authenticated
         {
             var c = customers.Where(o => (o.UserName == username) && (o.Password == password ));
 

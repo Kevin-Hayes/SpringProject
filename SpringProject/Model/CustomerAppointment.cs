@@ -15,7 +15,7 @@ namespace SpringProject.Model
         public Doctor doctor { get; set; }
 
 
-        public CustomerAppointment(Customer c, Appointment a, Doctor d)
+        public CustomerAppointment(Customer c, Appointment a, Doctor d) //allows patient to see their corresponding doctors and appointments
         {
             customer = c;
             appointment = a;

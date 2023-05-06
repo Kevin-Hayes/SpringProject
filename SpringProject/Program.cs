@@ -61,17 +61,17 @@ namespace SpringProject
             customers.customers.Add(c1);
             customers.customers.Add(c2);
 
-            appointments= new List<Appointment>();
+            appointments= new List<Appointment>(); //Appointment class and its local variables
             appointments.Add(a1);
             appointments.Add(a2);
             appointments.Add(a3);
 
-            customerAppointments = new List<CustomerAppointment>();
+            customerAppointments = new List<CustomerAppointment>(); //CustomerAppointment class and its local variables
             customerAppointments.Add(ca1);
             customerAppointments.Add(ca2); 
             customerAppointments.Add(ca3);
 
-            doctors = new List<Doctor>();
+            doctors = new List<Doctor>(); //Doctor class and its local variables
             doctors.Add(d1);
             doctors.Add(d2);
 
@@ -133,7 +133,7 @@ namespace SpringProject
         {
             if(authenticatedCustomer == null)
             {
-                Console.Write("Enter your username: ");
+                Console.Write("Enter your username: "); //The username and passwords are read and authenticated
                 string username = Console.ReadLine();
                 Console.Write("Enter your password: ");
                 string password = Console.ReadLine();
@@ -200,14 +200,14 @@ namespace SpringProject
 
             var appointmentsList = customerAppointments.Where(o => o.customer.UserName == authenticatedCustomer.UserName);
 
-            if(appointmentsList.Count() == 0)
+            if(appointmentsList.Count() == 0) //customer username is matched up with existing appointments
             {
-                Console.WriteLine("0 appointment found.");
+                Console.WriteLine("0 appointments found.");
                 Console.WriteLine(" ");
             }
             else
             {
-                foreach(var appointment in appointmentsList)
+                foreach(var appointment in appointmentsList) //if an appointment exists, it will be shown
                 {
                     Console.WriteLine(" ");
                     Console.WriteLine(appointment.appointment.currentDate);
