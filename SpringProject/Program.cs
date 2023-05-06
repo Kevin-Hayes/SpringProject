@@ -4,19 +4,19 @@ namespace SpringProject
 {
     public class Program
     {
-        private static Customers customers;
+        private static Customers customers; // the following five line are our classes being defined
         private static List<Appointment> appointments;
         private static List<CustomerAppointment> customerAppointments;
         private static Customer authenticatedCustomer;
         private static List<Doctor> doctors;
         static void Main(string[] args)
         {
-            Console.WriteLine("Initializing...");
+            Console.WriteLine("Initializing..."); // This is the main method. In here our initialize method and menu method are immediately called.
             Initialize();
             Menu();
         }
 
-        static void Initialize()
+        static void Initialize() // initialize method
         {
             var c1 = new Customer //c1 and c2 are made up customers that can be used to login into the program without siging up
             {
@@ -47,13 +47,13 @@ namespace SpringProject
 
             
 
-            var a1 = new Appointment();
+            var a1 = new Appointment(); //declaring appointment variables
             var a2 = new Appointment();
             var a3 = new Appointment();
 
 
 
-            var ca1 = new CustomerAppointment(c1, a1, d1);
+            var ca1 = new CustomerAppointment(c1, a1, d1); //declaring CA variables, as well as assigning a patient a doctor and appointment
             var ca2 = new CustomerAppointment(c1, a2, d2);
             var ca3 = new CustomerAppointment(c2, a3, d2);
 
@@ -79,7 +79,7 @@ namespace SpringProject
 
         }
 
-        static void Menu()
+        static void Menu() // menu method
         {
             bool done = false;
 
@@ -88,9 +88,9 @@ namespace SpringProject
                 Console.WriteLine("Options:"); // the following 8 lines display the options a patient has when they open the program
                 Console.WriteLine("To login, press 1");
                 Console.WriteLine("To logout, press 2");
-                Console.WriteLine("To sign Up, press 3");
+                Console.WriteLine("To sign up, press 3");
                 Console.WriteLine("To view your appointments, press 4");
-                Console.WriteLine("To see your doctors, press 5");
+                Console.WriteLine("To see doctors and their ID, press 5");
                 Console.WriteLine("To clear the screen or quit the program, select c or q");
                 Console.WriteLine("Choice: "); // on this line the patient enters their their option
                 string choice = Console.ReadLine(); // the patients input is read by the program
@@ -185,7 +185,8 @@ namespace SpringProject
 
             customers.customers.Add(newCustomer);
 
-            Console.WriteLine("Profile created!");
+            Console.WriteLine("Account created successfully");
+            Console.WriteLine(" ");
 
         }
 
@@ -202,6 +203,7 @@ namespace SpringProject
             if(appointmentsList.Count() == 0)
             {
                 Console.WriteLine("0 appointment found.");
+                Console.WriteLine(" ");
             }
             else
             {
@@ -222,7 +224,8 @@ namespace SpringProject
             {
                 Console.WriteLine($"{i}: {doctors[i].LastName}, {doctors[i].FirstName}");
             }
-            Console.WriteLine("Enter doctor's corresponding number: ");
+            Console.WriteLine("Enter doctor's corresponding number: "); /* after entering the doctors number, nothing will
+                                                                         happen, but we thought it made our program look better */
             Console.ReadLine();
         }
 
